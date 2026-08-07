@@ -1,0 +1,39 @@
+.sidebar {
+    height: 100%;
+    width: 100px;
+    position: fixed;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    background-color: black;
+    overflow-x: hidden;
+    padding: 20px;
+}
+
+.sidebar img {
+    width: 2.5rem;
+}
+
+.sidebar ul {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    gap: 0.5rem;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: white;
+    display: block;
+}
+
+.sidebar a:hover {
+    color: gray;
+    background-color: white;
+}
+
+.main {
+    padding-left: 160px;
+}
