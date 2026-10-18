@@ -1,4 +1,4 @@
-.sidebar {
+.sidebar_body {
     height: 100%;
     width: 100px;
     position: fixed;
@@ -10,11 +10,11 @@
     padding: 20px;
 }
 
-.sidebar img {
+.sidebar_body img {
     width: 2.5rem;
 }
 
-.sidebar ul {
+.sidebar_body ul {
     display: flex;
     justify-content: center;
     list-style-type: none;
@@ -23,17 +23,79 @@
     margin: 0;
 }
 
-.sidebar a {
+.socials_list ul {
+	padding-bottom: 0.5rem;
+}
+
+.pages_list a {
     text-decoration: none;
     color: white;
     display: block;
 }
 
-.sidebar a:hover {
+.pages_list a:hover {
     color: gray;
     background-color: white;
 }
 
 .main {
     padding-left: 160px;
+}
+
+.main_portfolio {
+	padding-left: 160px
+}
+
+.main_portfolio h1 {
+	text-align: center;
+}
+
+.portfolio_segment {
+	align-items: center;
+	border-style: solid;
+	border-width: 1px;
+	display: inline-block;
+	width: 33%;
+	vertical-align: top;
+	box-sizing: border-box;
+}
+
+.portfolio_segment table {
+	width: auto;
+	margin: auto;
+	margin-top: -3rem;
+	margin-bottom: 1rem;
+}
+
+.portfolio_segment td {
+	padding-left: 1rem;
+	padding-right: 1rem;
+}
+
+.portfolio_segment h2 {
+	text-align: center;
+}
+
+.portfolio_segment h3 {
+	margin-left: 1rem;
+}
+
+.portfolio_segment p {
+	margin-left: 1rem;
+	margin-top: -1rem;
+}
+
+.seperator {
+	width: auto;
+	margin: auto;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+	padding-top: 0px;
+	border: none;
+	border-top: solid;
+	border-width: 1px;
+}
+
+.contacts p {
+	margin-top: -1rem;
 }
