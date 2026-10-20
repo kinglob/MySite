@@ -33,10 +33,10 @@ async function LoadBlogPage() {
     };
 
     if (!postresult.success) console.error("Failed to get post:", postresult);
-    
-    for (var i = 0; i < postresult.data.length; i++) {
-      postjsons[postresult.data[i].postnum] = postresult.data[i];
-      console.log(`Recieved post ${postresult.data[i].postnum}`)
+
+    for (const postjson of postresult.data) {
+      postjsons[postjson.postnum] = postjson;
+      console.log(`Recieved post ${postjson.postnum}`)
     };
   })
 
