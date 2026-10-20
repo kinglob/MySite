@@ -1,14 +1,20 @@
 async function LoadBlogPage() {
   const init_response = await fetch("/api/blog/v1?isinit=1");
 
-  const result = await init_response.json();
   const responsetext = await init_response.text();
-
   console.log(`Init Response Text: ${responsetext}`);
   console.log(`Init Response Status: ${init_response.status}`);
-  
+
+  var result
+  try {
+    result = JSON.parse(responsetext);
+  } catch (e) {
+    console.error("Server returned invalid JSON:", e);
+  };
+
+
   if (!result.success) {
-    console.error("Failed to init!");
+    console.error("Failed to init!", result);
   };
 
 
