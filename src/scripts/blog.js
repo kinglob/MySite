@@ -16,7 +16,7 @@ async function LoadBlogPage() {
   if (!initresult.success) console.error("Failed to init!", initresult);
 
 
-  var post_ids = result.data;
+  var post_ids = initresult.data;
   const maxcallcount = 10;
 
   var postjsons = {};
