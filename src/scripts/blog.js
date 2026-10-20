@@ -20,8 +20,9 @@ async function LoadBlogPage() {
   const maxcallcount = 10;
 
   var postjsons = {};
-  post_ids.forEach(async (id) => {
-    const args = `?ids=${id}`
+
+  for (const id of post_ids) {
+    const args = `?ids=${id}`;
     const post_response = await fetch(`/api/blog/v1${args}`);
     const postresponsetext = await post_response.text();
     var postresult;
@@ -38,13 +39,13 @@ async function LoadBlogPage() {
       postjsons[postjson.postnum] = postjson;
       console.log(`Recieved post ${postjson.postnum}`)
     };
-  })
+  }
 
   return postjsons
 }
 
-LoadBlogPage().then((postjsons) => {
-  console.log(`Recieved all post jsons! | ${postjsons}`);
+LoadBlogPage().then(postjsons => {
+  console.log(`Recieved all post JSONs: ${postjsons}`);
 	const blogpost_container = document.getElementById("blog_posts");
 
 	for (const postjson of Object.values(postjsons)) {
@@ -60,6 +61,7 @@ LoadBlogPage().then((postjsons) => {
     postdiv.appendChild(title);
     postdiv.appendChild(body);
     blogpost_container.appendChild(postdiv);
+    console.log(`Rendered post ${postjson.postnum}`);
   };
 });
 
