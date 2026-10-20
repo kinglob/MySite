@@ -1,8 +1,12 @@
 async function LoadBlogPage() {
   const init_response = await fetch("/api/blog/v1?isinit=1");
+
   const result = await init_response.json();
-  console.log(`Init Response Text: ${init_response.text()}`);
+  const responsetext = await init_response.text();
+
+  console.log(`Init Response Text: ${responsetext}`);
   console.log(`Init Response Status: ${init_response.status}`);
+  
   if (!result.success) {
     console.error("Failed to init!");
   };
