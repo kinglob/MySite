@@ -47,11 +47,24 @@ LoadBlogPage().then((postjsons) => {
   console.log(`Recieved all post jsons! | ${postjsons}`);
 	const blogpost_container = document.getElementById("blog_posts");
 
-	for (const postjson of Object.values(postjsons)) {};
+	for (const postjson of Object.values(postjsons)) {
+    const postdiv = document.createElement("div");
+    postdiv.id = "post";
+    
+    const title = document.createElement("h1");
+    title.textContent = postjson.title;
+    
+    const body = document.createElement("p");
+    body.textContent = postjson.body;
+
+    postdiv.appendChild(title);
+    postdiv.appendChild(body);
+    blogpost_container.appendChild(postdiv);
+  };
 });
 
 // blog posts have:
 // - "title"
 // - "body"
-// - "potsnum"
+// - "postnum"
 // render postjsons blog.html later
