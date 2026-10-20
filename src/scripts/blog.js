@@ -13,7 +13,7 @@ async function LoadBlogPage() {
   };
 
 
-  if (!result.success) console.error("Failed to init!", initresult);
+  if (!initresult.success) console.error("Failed to init!", initresult);
 
 
   var post_ids = result.data;
