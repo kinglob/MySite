@@ -47,7 +47,7 @@ LoadBlogPage().then((postjsons) => {
   console.log(`Recieved all post jsons! | ${postjsons}`);
 	const blogpost_container = document.getElementById("blog_posts");
 
-	for (const postjson of Object.values(postjson)) {};
+	for (const postjson of Object.values(postjsons)) {};
 });
 
 // blog posts have:
