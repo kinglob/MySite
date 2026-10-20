@@ -44,11 +44,7 @@ async function LoadBlogPage() {
   return postjsons
 }
 
-LoadBlogPage().then(postjsons => {
-  console.log(`Recieved all post JSONs: ${postjsons}`);
-	const blogpost_container = document.getElementById("blog_posts");
-
-	for (const postjson of Object.values(postjsons)) {
+function CreatePostElement(postjson) {
     const postdiv = document.createElement("div");
     postdiv.id = "post";
     
@@ -61,6 +57,14 @@ LoadBlogPage().then(postjsons => {
     postdiv.appendChild(title);
     postdiv.appendChild(body);
     blogpost_container.appendChild(postdiv);
+}
+
+LoadBlogPage().then(postjsons => {
+  console.log(`Recieved all post JSONs: ${postjsons}`);
+	const blogpost_container = document.getElementById("blog_posts");
+
+	for (const postjson of Object.values(postjsons)) {
+    CreatePostElement(postjson);
     console.log(`Rendered post ${postjson.postnum}`);
   };
 });
