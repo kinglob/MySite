@@ -1,7 +1,11 @@
 async function LoadBlogPage() {
   const init_response = await fetch("/api/blog/v1?isinit=1");
   const result = await init_response.json();
-  if (!result.success) console.error("Failed to init!");
+  console.log(`Init Response Text: ${init_response.text()}`);
+  console.log(`Init Response Status: ${init_response.status}`);
+  if (!result.success) {
+    console.error("Failed to init!");
+  };
 
 
   var post_ids = result.data;
