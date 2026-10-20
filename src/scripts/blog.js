@@ -1,21 +1,19 @@
 async function LoadBlogPage() {
   const init_response = await fetch("/api/blog/v1?isinit=1");
 
-  const responsetext = await init_response.text();
-  console.log(`Init Response Text: ${responsetext}`);
+  const initresponsetext = await init_response.text();
+  console.log(`Init Response Text: ${initresponsetext}`);
   console.log(`Init Response Status: ${init_response.status}`);
 
-  var result
+  var initresult
   try {
-    result = JSON.parse(responsetext);
+    initresult = JSON.parse(initresponsetext);
   } catch (e) {
     console.error("Server returned invalid JSON:", e);
   };
 
 
-  if (!result.success) {
-    console.error("Failed to init!", result);
-  };
+  if (!result.success) console.error("Failed to init!", initresult);
 
 
   var post_ids = result.data;
@@ -23,12 +21,20 @@ async function LoadBlogPage() {
 
   var postjsons = {};
   post_ids.forEach(async (id) => {
-    const args = `?ids=${postsrequested}`
-    const post = await fetch(`/api/blog/v1${args}`);
-    const result = await post.json();
-    if (!result.success) return;
-      
-    for (var i = 0; i < result.data.length; i++) {
+    const args = `?ids=${id}`
+    const post_response = await fetch(`/api/blog/v1${args}`);
+    const postresponsetext = await post_response.text();
+    var postresult;
+
+    try {
+      postresult = JSON.parse(postresponsetext);
+    } catch (e) {
+      console.error("Server sent invalid post JSON:", e);
+    };
+
+    if (!postresult.success) console.error("Failed to get post:", postresult);
+    
+    for (var i = 0; i < postresult.data.length; i++) {
       postjsons[result.data[i].postnum] = result.data[i];
       console.log(`Recieved post ${result.data[i].postnum}`)
     };
