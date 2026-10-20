@@ -1,5 +1,3 @@
-
-
 async function LoadBlogPage() {
   const init_response = await fetch("/api/blog/v1?isinit=1");
   const result = await init_response.json();
@@ -25,8 +23,11 @@ async function LoadBlogPage() {
   return postjsons
 }
 
-LoadBlogPage().then(postjsons => {
+LoadBlogPage().then((postjsons) => {
   console.log(`Recieved all post jsons! | ${postjsons}`);
+	const blogpost_container = document.getElementById("blog_posts");
+
+	for (const postjson of Object.values(postjson)) {};
 });
 
 // blog posts have:
