@@ -2,18 +2,27 @@
 	background-color: #262626;
 }
 
+a:link {
+	color: #0BF436;
+	text-decoration: none;
+}
+
 .topbar_body {
-  height: 50px;
+  height: 3.25rem;
   width: 100%;
+
   position: fixed;
   z-index: 0;
+  overflow-x: hidden;
   top: 0;
   left: 0;
+
   background-color: black;
-  overflow-x: hidden;
+
 	border-bottom-color: #0BF436;
 	border-bottom-style: solid;
-	border-bottom-width: 0.05rem;
+	border-bottom-width: 1px;
+	border-bottom-style: inset;
 }
 
 .topbar_body img {
@@ -38,7 +47,7 @@
 	background-color: black;
 	border-bottom-color: #0BF436;
 	border-bottom-style: solid;
-	border-bottom-width: 0.05rem;
+	border-bottom-width: 1px;
 }
 
 .socials_list ol {
@@ -56,79 +65,77 @@
   padding: 0;
   margin: 0;
 	padding-left: 25%;
+	padding-top: 0.1rem;
 }
 
 .pages_list a {
 	background-color: black;
 	text-decoration: none;
 	color: white;
+	margin: 0;
+	padding: 0;
 	display: block;
 }
 
 .pages_list a:hover {
-  color: gray;
-  background-color: white;
+  color: black;
+  background-color: #0BF436;
 }
 
 .main {
-	background-color: black;
+	color: white;
   padding-left: 160px;
 }
 
 .main_portfolio {
-	background-color: black;
-	padding-left: 160px
+	color: white;
 }
 
 .main_portfolio h1 {
-	background-color: black;
 	text-align: center;
 }
 
 .portfolio_segment {
-	background-color: black;
-	align-items: center;
-	border-style: solid;
-	border-width: 1px;
-	display: inline-block;
-	width: 33%;
-	vertical-align: top;
-	box-sizing: border-box;
-}
+	color: white;
+	width: 100%;
 
-.portfolio_segment table {
-	background-color: black;
-	width: auto;
-	margin: auto;
-	margin-top: -3rem;
-	margin-bottom: 1rem;
-}
-
-.portfolio_segment td {
-	padding-left: 1rem;
-	background-color: black;
-	padding-right: 1rem;
-}
-
-.portfolio_segment h2 {
-	background-color: black;
 	text-align: center;
+	align-items: center;
+
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+
+	display: inline-block;
 }
 
-.portfolio_segment h3 {
-	background-color: black;
-	margin-left: 1rem;
-}
+.portfolio_card {
+	padding-right: 0.5rem;
+	padding-left: 0.5rem;
 
-.portfolio_segment p {
-	background-color: black;
+	margin-right: 1rem;
 	margin-left: 1rem;
-	margin-top: -1rem;
+
+	background-color: black;
+
+	border-style: solid;
+	border-color: white;
+	border-width: 1px;
+	border-radius: 10px;
+
+	height: 225px;
+	width: 175px;
+
+	box-sizing: border-box;
+	align-items: center;
+
+	display: inline-flex;
+	flex-direction: column;
 }
+.portfolio_card * { background-color: black; }
+.portfolio_card p { font-size: 14px; margin-top: auto; }
 
 .seperator {
-	background-color: black;
-	width: auto;
+	width: 100%;
 	margin: auto;
 	margin-top: 1rem;
 	margin-bottom: 1rem;
@@ -139,6 +146,6 @@
 }
 
 .contacts p {
-	background-color: black;
+	color: white;
 	margin-top: -1rem;
 }
