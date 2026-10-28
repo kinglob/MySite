@@ -130,9 +130,18 @@ a:link {
 
 	display: inline-flex;
 	flex-direction: column;
+
+	box-shadow: 0 0 0 none;
+	transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
+
 .portfolio_card * { background-color: black; }
 .portfolio_card p { font-size: 14px; margin-top: auto; }
+
+.portfolio_card:hover {
+	box-shadow: 0 2px 4px white;
+	transform: translateY(-4px);
+}
 
 .seperator {
 	width: 100%;
