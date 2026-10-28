@@ -7,6 +7,21 @@ a:link {
 	text-decoration: none;
 }
 
+a:visited {
+	color: #0BF436;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #0BF436;
+	text-decoration: none;
+}
+
+a:active {
+	color: #0BF436;
+	text-decoration: none;
+}
+
 .topbar_body {
   height: 3.25rem;
   width: 100%;
@@ -109,8 +124,8 @@ a:link {
 }
 
 .portfolio_card {
-	padding-right: 0.5rem;
-	padding-left: 0.5rem;
+	padding-right: 0.1rem;
+	padding-left: 0.1rem;
 
 	margin-right: 1rem;
 	margin-left: 1rem;
@@ -131,15 +146,16 @@ a:link {
 	display: inline-flex;
 	flex-direction: column;
 
-	box-shadow: 0 0 0 none;
+	box-shadow: 0 1px 2px #0BF436;
 	transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .portfolio_card * { background-color: black; }
 .portfolio_card p { font-size: 14px; margin-top: auto; }
+.portfolio_card i { font-size: 12px; }
 
 .portfolio_card:hover {
-	box-shadow: 0 2px 4px white;
+	box-shadow: 0 2px 8px #0BF436;
 	transform: translateY(-4px);
 }
 
