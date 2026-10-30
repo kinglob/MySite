@@ -23,7 +23,11 @@ a:active {
 }
 
 .topbar_body {
-  height: 3.25rem;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+
+	height: 64px;
   width: 100%;
 
   position: fixed;
@@ -45,51 +49,60 @@ a:active {
 	height: 1.5rem;
 	background-color: black;
 	object-fit: fill;
-}
-
-.topbar_body ol {
-  display: flex;
-  justify-content: space-between;
 	background-color: black;
-	align-items: center;
-  list-style: none;
-	width: 50%;
-  padding: 0;
-  margin: 0;
 }
 
 .socials_list {
+	flex: 0 0 91%;
+	flex-direction: row;
+	height: 24px;
+	margin-top: 8px;
 	background-color: black;
-	border-bottom-color: #0BF436;
-	border-bottom-style: solid;
-	border-bottom-width: 1px;
 }
 
 .socials_list ol {
 	background-color: black;
-	padding-bottom: 0.5rem;
+	align-items: center;
+	align-content: center;
+}
+
+.pages_list {
+	display: flex;
+	flex: 0 0 100%;
+
+	width: 100%;
+	height: 40;
+
+	background-color: black;
+
+	padding: 0;
+	margin: 0;
+
+	border-top-color: #0BF436;
+	border-top-style: solid;
+	border-top-width: 1px;
 }
 
 .pages_list ol {
-  display: flex;
-	background-color: black;
-  justify-content: space-between;
+	display: flex;
+	flex-direction: row;
+
+	padding: 0;
+	margin: 0 auto;
+	width: 100%;
+
+	justify-content: space-evenly;
 	align-items: center;
-  list-style: none;
-	width: 50%;
-  padding: 0;
-  margin: 0;
-	padding-left: 25%;
-	padding-top: 0.1rem;
+	list-style: none;
+
+	background-color: black;
 }
 
 .pages_list a {
-	background-color: black;
-	text-decoration: none;
 	color: white;
 	margin: 0;
 	padding: 0;
-	display: block;
+	background-color: black;
 }
 
 .pages_list a:hover {
@@ -97,10 +110,42 @@ a:active {
   background-color: #0BF436;
 }
 
+.gitview {
+	display: flex;
+	flex-direction: row;
+	flex: 0 0 9%;
+
+	padding: 0;
+	margin: 0;
+
+	background-color: black;
+	color: white;
+}
+
+.gitview ol {
+	display: flex;
+	flex-direction: column;
+
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	list-style: none;
+	align-items: center;
+	background-color: black;
+
+	font-size: 14px;
+}
+
+.gitview p { background-color: black; margin: 0; margin-left: 8px; margin-top: 4px; }
+.gitview img { background-color: black; height: 32px; width: auto; display: block; }
+.gitview a { background-color: black; }
+
 .main {
 	color: white;
-  padding-left: 160px;
+  padding-top: 3.25rem;
 }
+
+.main i { font-size: 12px; }
 
 .main_portfolio {
 	color: white;
