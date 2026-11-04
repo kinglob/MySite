@@ -1,3 +1,5 @@
+const blogpost_container = document.getElementById("blog_posts");
+
 async function LoadBlogPage() {
   const init_response = await fetch("/api/blog/v1?isinit=1");
 
@@ -47,9 +49,10 @@ async function LoadBlogPage() {
 function CreatePostElement(postjson) {
     const postdiv = document.createElement("div");
     postdiv.id = "post";
+		postdiv.classList.add("blog_post");
     
     const title = document.createElement("h1");
-    title.textContent = postjson.title;
+    title.textContent = postjson.title + " | " + postjson.postnum;
     
     const body = document.createElement("p");
     body.textContent = postjson.body;
@@ -59,18 +62,44 @@ function CreatePostElement(postjson) {
     blogpost_container.appendChild(postdiv);
 }
 
+/*
 LoadBlogPage().then(postjsons => {
   console.log(`Recieved all post JSONs: ${postjsons}`);
-	const blogpost_container = document.getElementById("blog_posts");
 
 	for (const postjson of Object.values(postjsons)) {
     CreatePostElement(postjson);
     console.log(`Rendered post ${postjson.postnum}`);
   };
 });
+*/
 
 // blog posts have:
 // - "title"
 // - "body"
 // - "postnum"
 // render postjsons blog.html later
+
+function demo() {
+const postdiv = document.createElement("div");
+postdiv.id = "post";
+postdiv.classList.add("blog_post");
+    
+const title = document.createElement("h1");
+title.textContent = "DemoTitle" + " | " + 0;
+    
+const body = document.createElement("p");
+body.textContent = 
+		"DemoBodyDemoBodyDemoBodyDemoBodyDemoBodyDemoBodyDemoBodyDemoBodyDemoBodyDemoBodyDemoBodyDemoBodyDemoBody" +
+		"DemoBodyDemoBodyDemoBodyDemoBodyDemoBodyDemoBodyDemoBodyDemoBodyDemoBodyDemoBodyDemoBodyDemoBodyDemoBody" +
+		"DemoBodyDemoBodyDemoBodyDemoBodyDemoBodyDemoBodyDemoBodyDemoBodyDemoBodyDemoBodyDemoBodyDemoBodyDemoBody";
+
+postdiv.appendChild(title);
+postdiv.appendChild(body);
+blogpost_container.appendChild(postdiv);
+}
+demo()
+demo()
+demo()
+demo()
+demo()
+

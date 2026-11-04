@@ -219,3 +219,43 @@ a:active {
 	color: white;
 	margin-top: -1rem;
 }
+
+.blog_posts {
+	margin-top: 64px;
+
+	align-items: center;
+	justify-content: space-between;
+	gap: 16px;
+
+	display: flex;
+	flex-direction: column;
+}
+
+.blog_post {
+	border-style: solid;
+	border-width: 1px;
+	border-radius: 10px;
+
+	box-sizing: border-box;
+	width: 50%;
+	height: 175px;
+
+	display: flex;
+	flex-direction: column;
+}
+
+.blog_post h1 {
+	display: flex;
+	align-self: left;
+
+	margin-left: 1rem;
+	margin-bottom: 0;
+}
+
+.blog_post p {
+	display: flex;
+	align-self: left;
+	overflow-wrap: anywhere;
+	margin-left: 1rem;
+	margin-right: 1rem;
+}
