@@ -259,3 +259,28 @@ a:active {
 	margin-left: 1rem;
 	margin-right: 1rem;
 }
+
+.projects {
+	margin-top: 64px;
+
+	align-items: center;
+	justify-content: space-between;
+	gap: 16px;
+
+	display: flex;
+	flex-direction: column;
+}
+
+.project {
+	border-style: solid;
+	border-width: 1px;
+	border-radius: 10px;
+
+	box-sizing: border-box;
+
+	width: 50%;
+	height: 175px;
+
+	display: flex;
+	flex-direction: row;
+}
