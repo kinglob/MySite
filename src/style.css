@@ -139,13 +139,14 @@ a:active {
 
 .main {
 	color: white;
-  padding-top: 3.25rem;
+  padding-top: 72px;
 }
 
 .main i { font-size: 12px; }
 
 .main_portfolio {
 	color: white;
+  padding-top: 72px;
 }
 
 .main_portfolio h1 {
