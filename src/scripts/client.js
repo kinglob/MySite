@@ -26,14 +26,12 @@ async function GetCommitCount() {
 }
 
 function UpdateGitView(commitcount, pullreqcount, currbranch) {
-	/*
-	const gitview_list = document.getElementById("gitview_list");
+	const gitview = document.getElementById("gitview_data");
 
 	const commit_label = document.createElement("p");
-	commit_label.textContent = `Commits: {commitcount}`;
+	commit_label.textContent = `Commits: ${commitcount}`;
 
-	gitview_list.appendChild(commit_label);
-	*/
+	gitview.appendChild(commit_label);
 }
 
 GetCommitCount().then(commitcount => {

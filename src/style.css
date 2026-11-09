@@ -27,7 +27,7 @@ a:active {
 	flex-direction: row;
 	flex-wrap: wrap;
 
-	height: 64px;
+	height: 66px;
   width: 100%;
 
   position: fixed;
@@ -55,7 +55,7 @@ a:active {
 .socials_list {
 	flex: 0 0 91%;
 	flex-direction: row;
-	height: 24px;
+	height: 26px;
 	margin-top: 8px;
 	background-color: black;
 }
@@ -122,23 +122,20 @@ a:active {
 	color: white;
 }
 
-.gitview ol {
+.gitview p { background-color: black; margin: 0; margin-left: 8px; margin-top: 4px; font-size: 14px; }
+.gitview img { background-color: black; height: 32px; width: auto; display: block; }
+.gitview a { background-color: black; }
+
+.gitview_data {
 	display: flex;
 	flex-direction: column;
 
-	margin: 0;
 	padding: 0;
-	overflow: hidden;
-	list-style: none;
-	align-items: center;
+	margin: 0;
+
 	background-color: black;
-
-	font-size: 14px;
+	color: #0BF436;
 }
-
-.gitview p { background-color: black; margin: 0; margin-left: 8px; margin-top: 4px; }
-.gitview img { background-color: black; height: 32px; width: auto; display: block; }
-.gitview a { background-color: black; }
 
 .main {
 	color: white;
