@@ -1,67 +1,76 @@
 // Project jsons are structured as such:
 // - projectnum (unique number of the project)
-// - title 
+// - title
 // - desc
 // - img (blob img stored as base64 string in json)
 
-const projects = document.getElementById("projects")
+const projects = document.getElementById("project_list");
 
 function CreatePost(title, desc, img) {
-	const project_post = document.createElement("div")
-	project_post.classList.add("project")
+  const project_post = document.createElement("div");
+  project_post.classList.add("project");
 
-	const title_h = document.createElement("h1")
-	title_h.textContent = title
-	project_post.appendChild(title_h)
+  const title_h = document.createElement("h1");
+  title_h.textContent = title;
+  project_post.appendChild(title_h);
 
-	const img_img = document.createElement("img")
-	img_img.src = img
-	project_post.appendChild(img_img)
+  const img_img = document.createElement("img");
+  img_img.src = img;
+  img_img.classList.add("project_content_img");
 
-	const desc_p = document.createElement("p")
-	desc_p.textContent = desc
-	project_post.appendChild(desc_p)
+  const desc_p = document.createElement("p");
+  desc_p.textContent = desc;
+  desc_p.classList.add("project_content_p");
+
+  const post_content = document.createElement("div");
+  post_content.classList.add("project_content");
+  post_content.appendChild(desc_p);
+  post_content.appendChild(img_img);
+
+  project_post.appendChild(post_content);
+  projects.appendChild(project_post);
 }
 
 async function QueryProjects() {
-	const init_response = await fetch("/api/blog/v1?isinit=1");
-	const init_responsetext = await init_response.text();
+  const init_response = await fetch("/api/blog/v1?isinit=1");
+  const init_responsetext = await init_response.text();
 
-	var init_result;
-	try {
-		init_result = JSON.parse(init_responsetext);
-	} catch (e) {
-		console.error("Server returned invalid JSON:", e);
-	}
+  var init_result;
+  try {
+    init_result = JSON.parse(init_responsetext);
+  } catch (e) {
+    console.error("Server returned invalid JSON:", e);
+  }
 
-	if (!init_result.success) console.error("Failed to init:", init_result)
+  if (!init_result.success) console.error("Failed to init:", init_result);
 
-	var project_ids = init_result.data;
+  var project_ids = init_result.data;
 
-	var projectjsons = {};
+  var projectjsons = {};
 
-	for (const id of project_ids) {
-		const args = `?ids=${id}`;
+  for (const id of project_ids) {
+    const args = `?ids=${id}`;
 
-		const project_response = await fetch(`/api/blog/v1${args}`);
-		const project_responsetext = await project_response.text();
+    const project_response = await fetch(`/api/projects/v1${args}`);
+    const project_responsetext = await project_response.text();
 
-		var project_result;
-		try {
-			project_result = JSON.parse(project_responsetext);
-		} catch (e) {
-			console.error("Server sent invalid project JSON:", e);
-		}
+    var project_result;
+    try {
+      project_result = JSON.parse(project_responsetext);
+    } catch (e) {
+      console.error("Server sent invalid project JSON:", e);
+    }
 
-		if (!project_result.success) console.error("Failed to get project:", e);
+    if (!project_result.success) console.error("Failed to get project:", e);
 
-		for (const projectjson of project_result.data) {
-			projectjsons[projectjson.projectnum] = projectjson;
-			console.log(`Recieved post ${projectjson.projectnum}`)
-		}
-	}
+    for (const projectjson of project_result.data) {
+      projectjsons[projectjson.projectnum] = projectjson;
+      console.log(`Recieved post ${projectjson.projectnum}`);
+    }
+  }
 }
 
+/*
 QueryProjects().then(projectjsons => {
 	// create little project grid thing
 	// that you can click on
@@ -73,3 +82,15 @@ QueryProjects().then(projectjsons => {
 		CreatePost(pjson.title, pjson.desc, pjson.img)
 	}
 })
+*/
+
+CreatePost(
+  "ProjectDemo",
+  "DescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescription",
+  "assets/testimg.png",
+);
+CreatePost(
+  "ProjectDemo",
+  "DescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescriptionDescription",
+  "assets/testimg.png",
+);
